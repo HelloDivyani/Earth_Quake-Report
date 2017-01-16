@@ -17,7 +17,6 @@ package com.example.android.quakereport;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,21 +31,35 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.earthquake_activity);
 
         // Create a fake list of earthquake locations.
-        ArrayList<String> earthquakes = new ArrayList<>();
-        earthquakes.add("San Francisco");
-        earthquakes.add("London");
-        earthquakes.add("Tokyo");
-        earthquakes.add("Mexico City");
-        earthquakes.add("Moscow");
-        earthquakes.add("Rio de Janeiro");
-        earthquakes.add("Paris");
+        ArrayList<EarthQuake_Single> earthquakes = new ArrayList<>();
+        earthquakes.add(new EarthQuake_Single("12","San Francisco","13 jan"));
+        earthquakes.add(new EarthQuake_Single("14","London","23 jan"));
+        earthquakes.add(new EarthQuake_Single("14","Tokyo","12 jan"));
+        earthquakes.add(new EarthQuake_Single("14","Mexico City","14 jan"));
+        earthquakes.add(new EarthQuake_Single("14","Moscow","23 jan"));
+        earthquakes.add(new EarthQuake_Single("14","Rio de Janeiro","12 jan"));
+        earthquakes.add(new EarthQuake_Single("14","Paris","16 jan"));
+
+
+
+        // Now we need to create our own custom adapter
+        // An adapter is an API whuch bridges the listview,spinner and grid View
+
+
+
+
+
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
+
+        EarthquakeAdapter adapter =new EarthquakeAdapter(this,earthquakes);
+
+
         // Create a new {@link ArrayAdapter} of earthquakes
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, earthquakes);
+      //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        //        this, android.R.layout.simple_list_item_1, earthquakes);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
