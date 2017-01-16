@@ -4,7 +4,7 @@ package com.example.android.quakereport;
  * Created by Divyani on 15-01-2017.
  */
 public class EarthQuake_Single {
-    // It holds data of single earthquake
+    // It holds data of single earthquake data
     private String mag;
     private String date;
     private String location;
@@ -15,6 +15,7 @@ public class EarthQuake_Single {
     public  EarthQuake_Single(String magnitude,String mlocation,String mdate)
     {
         // parameterized constructor of the class EarthQuake_Single
+
         mag=magnitude;
         date=mdate;
         location=mlocation;
